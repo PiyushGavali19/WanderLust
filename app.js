@@ -113,7 +113,7 @@ app.listen(port,()=>{
 });
 
 app.get('/',(req,res)=>{
-    res.send("hello , i am root");
+    res.redirect('/listing');
 });
 
 // app.get("/testlisting",async (req,res)=>{
