@@ -26,12 +26,14 @@ const listingRoutes = require("./routes/listing.js");
 const reviewRoutes = require("./routes/review.js");
 const userRoutes = require("./routes/user.js");
 
-main().then(res => console.log(res)).catch(err => console.log(err));
-
 const dbUrl = process.env.ATLASDB_URL ;
+
 async function main() {
     await mongoose.connect(dbUrl);
+    console.log("MongoDB connected");
 };
+
+main().then(res => console.log(res)).catch(err => console.log(err));
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
