@@ -1,0 +1,28 @@
+<% layout('/layouts/boilerplate') -%>
+
+<div class="container mt-4">
+  <h2 class="mb-3">Search results for "<%= query %>"</h2>
+
+  <% if (listings.length === 0) { %>
+    <div class="alert alert-warning">
+      No listings found for "<%= query %>".
+    </div>
+  <% } else { %>
+    <div class="row">
+      <% listings.forEach(listing => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">  
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-text text-muted"><%= listing.location %></p>
+              <a href="/listing/<%= listing._id %>" class="btn btn-outline-primary">View Listing</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+</div>
+
+
